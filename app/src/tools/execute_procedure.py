@@ -18,7 +18,6 @@ def register(mcp: FastMCP):
 
         El procedimiento debe estar registrado y habilitado en el catálogo MCP.
         """
-        print(f"Ejecutando procedimiento: {procedure_name} con parámetros: {procedure_parameters}")
         return execute_procedure(
             procedure_name,
             procedure_parameters

@@ -11,7 +11,7 @@ services:
     environment:
       MCP_HOST: "0.0.0.0"
       MCP_PORT: "8000"
-      SERVER_IP: "192.168.200.112"
+      SERVER_IP: "192.168.3.77"
 
       SQL_SERVER: "172.27.83.199\\EVEREST_NEBI,1443"
       SQL_DATABASE: "test_bi"

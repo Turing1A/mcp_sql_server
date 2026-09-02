@@ -22,16 +22,6 @@ mcp = FastMCP(
 
 def main():
 
-    print("=" * 60)
-    print("Host:", mcp.settings.host)
-    print("Port:", mcp.settings.port)
-    print("Path:", mcp.settings.streamable_http_path)
-    print("DNS:",
-          mcp.settings.transport_security.enable_dns_rebinding_protection)
-    print("Allowed:",
-          mcp.settings.transport_security.allowed_hosts)
-    print("=" * 60)
-
     # Registrar herramientas 
     register_ping(mcp)
     register_test_connection(mcp)
