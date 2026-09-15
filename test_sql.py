@@ -11,8 +11,7 @@ try:
         "Connection Timeout=5;"
     )
 
-    print("Conectado correctamente")
     conn.close()
 
 except Exception as e:
-    print(repr(e))
+    pass

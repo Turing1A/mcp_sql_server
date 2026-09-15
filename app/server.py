@@ -4,6 +4,7 @@ from src.tools.test_connection import register as register_test_connection
 from src.tools.list_procedures import register as register_list_procedures
 from src.tools.describe_procedure import register as register_describe_procedure
 from src.tools.execute_procedure import register as register_execute_procedure
+#from src.tools.authentication import register as register_authentication
 import os
 import pyodbc
 
@@ -22,22 +23,14 @@ mcp = FastMCP(
 
 def main():
 
-    print("=" * 60)
-    print("Host:", mcp.settings.host)
-    print("Port:", mcp.settings.port)
-    print("Path:", mcp.settings.streamable_http_path)
-    print("DNS:",
-          mcp.settings.transport_security.enable_dns_rebinding_protection)
-    print("Allowed:",
-          mcp.settings.transport_security.allowed_hosts)
-    print("=" * 60)
-
     # Registrar herramientas 
     register_ping(mcp)
     register_test_connection(mcp)
     register_list_procedures(mcp)
     register_describe_procedure(mcp)
     register_execute_procedure(mcp)
+    ##register_authentication(mcp)
+    
     # Iniciar servidor
     mcp.run(transport="streamable-http")
 
