@@ -29,21 +29,40 @@ def execute_and_serialize(sql: str, parameters: tuple = ()):
 # -----------------------------------------------------------------------
 # GET PROCEDURES
 # -----------------------------------------------------------------------
-def get_procedures():
+def get_procedures(userID: int):
 
 
 
     sql = """
-        EXEC bi.mcp_listar_sp
+        EXEC bi.mcp_listar_sp ?
     """
 
-    resultado = execute_query(sql)
+    resultado = execute_query(sql, (userID,))
 
     resultado_serializado = serialize_rows(resultado)
 
 
 
     return resultado_serializado
+
+# -----------------------------------------------------------------------
+# AUTENTICATE USER
+# -----------------------------------------------------------------------
+# def aut_user(userID: int):
+
+#     sql = """
+#         EXEC bi.authentication ?
+#     """
+
+
+
+#     resultado = execute_query(sql, (userID,))
+
+#     resultado_serializado = serialize_rows(resultado)
+
+
+
+#     return resultado_serializado
 
 
 # -----------------------------------------------------------------------
@@ -85,8 +104,9 @@ def get_procedure_details(
     )
 
     if not resultado['has_data']:
+        
         raise Exception(
-            f"No existe información para el procedimiento "
+            f"No existe información para el sp "
             f"'{procedure_name}'."
         )
 
@@ -168,8 +188,7 @@ def execute_procedure(
         # PASO 2
         # =====================================================
 
-        inicio_paso_2 = perf_counter()
-
+        
         procedure_definition = get_procedure_details(
             procedure_name
         )
@@ -217,7 +236,7 @@ def execute_procedure(
             EXEC {schema}.{procedure_name}
             {', '.join(parameter_placeholders)}
         """
-
+        print("sql",sql)
         # =====================================================
         # PASO 6
         # =====================================================

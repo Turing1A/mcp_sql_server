@@ -5,7 +5,7 @@ from src.repositories.procedure_repository import get_procedures
 def register(mcp: FastMCP):
 
     @mcp.tool()
-    def list_procedures():
+    def list_procedures(userID: int):
         """
         Retorna la lista de procedimientos almacenados registrados y habilitados
         en el catálogo MCP.

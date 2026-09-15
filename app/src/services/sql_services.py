@@ -30,17 +30,16 @@ def execute_query(query: str, parameters: tuple = ()):
         # ---------------------------------------------------------
         # CREAR CURSOR
         # ---------------------------------------------------------
-        inicio = time.perf_counter()
+     
         cursor = conn.cursor()
-        fin = time.perf_counter()
+     
 
         # ---------------------------------------------------------
         # EJECUTAR CONSULTA
         # ---------------------------------------------------------
-        inicio = time.perf_counter()
+      
         cursor.execute(query, parameters)
-        fin = time.perf_counter()
-
+     
         # ---------------------------------------------------------
         # METADATA
         # ---------------------------------------------------------
@@ -49,9 +48,9 @@ def execute_query(query: str, parameters: tuple = ()):
         # ---------------------------------------------------------
         # FETCHALL
         # ---------------------------------------------------------
-        inicio = time.perf_counter()
+      
         rows = cursor.fetchall()
-        fin = time.perf_counter()
+      
 
         # ---------------------------------------------------------
         # SIN FILAS
