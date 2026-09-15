@@ -22,9 +22,8 @@ def get_sql_version() -> dict:
 
 
 def execute_query(query: str, parameters: tuple = ()):
-    inicio = time.perf_counter()
+
     conn = get_connection()
-    fin = time.perf_counter()
 
     try:
         # ---------------------------------------------------------

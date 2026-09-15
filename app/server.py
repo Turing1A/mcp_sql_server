@@ -4,7 +4,7 @@ from src.tools.test_connection import register as register_test_connection
 from src.tools.list_procedures import register as register_list_procedures
 from src.tools.describe_procedure import register as register_describe_procedure
 from src.tools.execute_procedure import register as register_execute_procedure
-from src.tools.authentication import register as register_authentication
+#from src.tools.authentication import register as register_authentication
 import os
 import pyodbc
 
@@ -29,7 +29,7 @@ def main():
     register_list_procedures(mcp)
     register_describe_procedure(mcp)
     register_execute_procedure(mcp)
-    register_authentication(mcp)
+    ##register_authentication(mcp)
     
     # Iniciar servidor
     mcp.run(transport="streamable-http")

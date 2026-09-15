@@ -10,4 +10,4 @@ def register(mcp: FastMCP):
         Retorna la lista de procedimientos almacenados registrados y habilitados
         en el catálogo MCP.
         """
-        return get_procedures()
+        return get_procedures(userID)
