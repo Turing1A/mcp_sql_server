@@ -4,18 +4,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: mcp_sqlserver
-
     ports:
       - "8000:8000"
-    
-    environment:
-      MCP_HOST: "0.0.0.0"
-      MCP_PORT: "8000"
-      SERVER_IP: "192.168.3.77"
-
-      SQL_SERVER: "172.27.83.199\\EVEREST_NEBI,1443"
-      SQL_DATABASE: "test_bi"
-      SQL_USER: "test"
-      SQL_PASSWORD: "test**2026"
-
+    env_file:
+      - .env
     restart: unless-stopped
